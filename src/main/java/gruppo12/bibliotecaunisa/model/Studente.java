@@ -2,6 +2,7 @@ package gruppo12.bibliotecaunisa.model;
 
 import javafx.collections.ObservableList;
 import java.io.*;
+import javafx.collections.FXCollections;
 
 public class Studente {
 
@@ -12,8 +13,16 @@ public class Studente {
     private String cognome;
 
     private String email;
-
-    private ObservableList<Prestito> listaPrestit;
+    
+    private ObservableList<Prestito> listaPrestiti;
+    
+    public Studente(String matricola, String nome, String cognome, String email) {
+        this.matricola = matricola;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.email = email;
+        this.listaPrestiti = FXCollections.observableArrayList();
+    }
 
     public void writeObject(ObjectOutputStream out) {
     }

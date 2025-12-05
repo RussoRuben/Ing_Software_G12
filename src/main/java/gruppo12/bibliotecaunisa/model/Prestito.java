@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Prestito {
 
-    private long num;
+    private static long num = 0;
 
     private long codice;
 
@@ -15,6 +15,14 @@ public class Prestito {
     private LocalDate dataInizio;
 
     private LocalDate dataFine;
+    
+    public Prestito(Studente studente, Libro libro, LocalDate dataInizio, LocalDate dataFine) {
+        this.codice = ++num;
+        this.studente = studente;
+        this.libro = libro;
+        this.dataInizio = dataInizio;
+        this.dataFine = dataFine;        
+    }
 
     public void setNum(long nuovoNum) {
     }

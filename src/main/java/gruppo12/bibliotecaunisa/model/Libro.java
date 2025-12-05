@@ -3,10 +3,11 @@ package gruppo12.bibliotecaunisa.model;
 import javafx.collections.ObservableList;
 import java.io.*;
 import java.util.List;
+import javafx.collections.FXCollections;
 
 public class Libro {
 
-    private long codice;
+    private String codice;
 
     private String titolo;
 
@@ -19,6 +20,16 @@ public class Libro {
     private int anno;
 
     private int copieDisponibili;
+    
+    public Libro(String codice, String titolo, List<String> autori, String editore, int numeroEdizione, int anno, int copieDisponibili) {
+        this.codice = codice;
+        this.titolo = titolo;
+        this.editore = editore;
+        this.numeroEdizione = numeroEdizione;
+        this.autori = FXCollections.observableArrayList(autori);
+        this.anno = anno;
+        this.copieDisponibili = copieDisponibili;
+    }
 
     public void writeObject(ObjectOutputStream out) {
     }
