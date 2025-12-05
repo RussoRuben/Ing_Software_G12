@@ -1,5 +1,7 @@
 package gruppo12.bibliotecaunisa.model;
 
+import java.time.LocalDate;
+
 public class Prestito {
 
     private long num;

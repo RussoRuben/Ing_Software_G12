@@ -1,5 +1,9 @@
 package gruppo12.bibliotecaunisa.model;
 
+import javafx.collections.ObservableList;
+import java.io.*;
+import java.util.List;
+
 public class Libro {
 
     private long codice;

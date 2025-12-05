@@ -1,5 +1,8 @@
 package gruppo12.bibliotecaunisa.model;
 
+import javafx.collections.ObservableList;
+import java.io.*;
+
 public class Studente {
 
     private String matricola;
