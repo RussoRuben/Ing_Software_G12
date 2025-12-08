@@ -1,10 +1,3 @@
-/**
- * @file Libro.java
- * @brief Questo file contiene l'implementazione della classe Libro con attributi e metodi per la gestione delle informazioni di un Libro
- * 
- * Maggiori info al riguardo sono contenute nella documentazione del progetto
- */
-
 package gruppo12.bibliotecaunisa.model;
 
 import javafx.collections.ObservableList;
