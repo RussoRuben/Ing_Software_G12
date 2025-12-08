@@ -1,10 +1,3 @@
-/**
- * @file Studente.java
- * @brief Questo file contiene l'implementazione della classe Studente con attributi e metodi per la gestione delle informazioni di uno studente
- * 
- * Maggiori info al riguardo sono contenute nella documentazione del progetto
- *
- */
 package gruppo12.bibliotecaunisa.model;
 
 
