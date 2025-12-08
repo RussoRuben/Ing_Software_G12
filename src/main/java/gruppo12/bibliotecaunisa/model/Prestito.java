@@ -1,9 +1,3 @@
-/**
- * @file Prestito.java
- * @brief Questo file contiene l'implementazione della classe Prestito con attributi e metodi per la gestione delle informazioni di un Prestito
- * 
- * Maggiori info al riguardo sono contenute nella documentazione del progetto
- */
 package gruppo12.bibliotecaunisa.model;
 
 import java.io.Serializable;
