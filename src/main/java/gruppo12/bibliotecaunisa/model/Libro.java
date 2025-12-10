@@ -14,7 +14,7 @@ public class Libro implements Serializable{
 
     private String codice;
     private String titolo;
-    private ObservableList<String> autori;
+    private transient ObservableList<String> autori;
     private String editore;
     private int numeroEdizione;
     private int anno;
@@ -45,7 +45,7 @@ public class Libro implements Serializable{
      * @brief Serializza l'oggetto su stream di Output
      * @param out Stream di Output
      */
-    public void writeObject(ObjectOutputStream out) throws IOException {
+    private void writeObject(ObjectOutputStream out) throws IOException {
         
         out.defaultWriteObject();
         out.writeObject(new ArrayList<>(autori));
@@ -57,7 +57,7 @@ public class Libro implements Serializable{
      * @brief Deserializza l'oggetto in stream di Input
      * @param in Stream di Input
      */
-    public void readObject(ObjectInputStream in)throws IOException, ClassNotFoundException{
+    private void readObject(ObjectInputStream in)throws IOException, ClassNotFoundException{
         
         in.defaultReadObject();
         List<String> lista = (List<String>) in.readObject();
