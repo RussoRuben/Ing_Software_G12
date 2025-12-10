@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="600.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gruppo12.bibliotecaunisa.controller.ControllerAggiungiLibro">
+    <children>
+        <HBox alignment="TOP_CENTER" maxHeight="-Infinity" VBox.vgrow="ALWAYS">
+            <children>
+                <Label text="Aggiungi Libro">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            </children>
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" spacing="10.0">
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+            <children>
+                <VBox spacing="34.0">
+                    <children>
+                      <Label text="Codice ISBN:" />
+                        <Label text="Titolo:" />
+                        <Label text="Autori:" />
+                        <Label text="Editore:" />
+                  <Label text="Numero edizione:" />
+                  <Label text="Anno:" />
+                        <Label text="Numero copie:" />
+                    </children>
+                    <padding>
+                        <Insets top="6.0" />
+                    </padding>
+                </VBox>
+                <VBox prefWidth="300.0" spacing="20.0">
+                    <children>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                            <TextField fx:id="campoCodice" />
+                        <Label fx:id="labelAvvisoCodice" textFill="RED">
+                           <font>
+                              <Font name="System Italic" size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                        <TextField fx:id="campoTitolo" alignment="TOP_LEFT" />
+                        <TextField fx:id="campoAutori" />
+                        <TextField fx:id="campoEditore" />
+                  <TextField fx:id="campoNumeroEdizione" />
+                  <TextField fx:id="campoAnno" />
+                  <HBox spacing="20.0">
+                     <children>
+                              <TextField fx:id="campoCopieDisponibili" alignment="CENTER" maxWidth="60.0" text="1" />
+                        <Button mnemonicParsing="false" onAction="#rimuoviCopia" prefWidth="40.0" text="-" />
+                        <Button mnemonicParsing="false" onAction="#aggiungiCopia" prefWidth="40.0" text="+" />
+                     </children>
+                  </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER" spacing="20.0">
+            <children>
+                <Button fx:id="bottoneConferma" disable="true" mnemonicParsing="false" onAction="#conferma" prefWidth="100.0" text="Conferma" />
+                <Button mnemonicParsing="false" onAction="#annulla" prefWidth="100.0" text="Annulla" />
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+        </HBox>
+      <Label fx:id="labelAvvisoInput" textFill="RED" />
+    </children>
+</VBox>

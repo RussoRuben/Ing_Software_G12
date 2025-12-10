@@ -1,0 +1,270 @@
+/* modern-dark.css */
+
+.root {
+    /* --- Palette Colori --- */
+    -fx-base: #1e1e1e;              /* Sfondo principale molto scuro */
+    -fx-background: #1e1e1e;
+    
+    -fx-control-inner-background: #2d2d2d; /* Sfondo input e tabelle */
+    -fx-control-inner-background-alt: #323232; /* Righe alternate */
+
+    -fx-accent: #3daaf5;            /* Blu elettrico moderno */
+    -fx-focus-color: #3daaf5;       
+    -fx-faint-focus-color: rgba(61, 170, 245, 0.25);
+
+    /* Testo */
+    -fx-light-text-color: #f0f0f0;
+    -fx-mid-text-color: #cccccc;
+    -fx-dark-text-color: #1e1e1e;
+    
+    -fx-text-fill: #f0f0f0;         /* Default text color */
+
+    /* Geometria */
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* --- BUTTONS --- */
+.button {
+    -fx-background-color: #3a3a3a;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: transparent;
+    -fx-padding: 6px 12px;
+}
+
+.button:hover {
+    -fx-background-color: #4a4a4a;
+    -fx-cursor: hand;
+}
+
+.button:pressed {
+    -fx-background-color: #2a2a2a;
+}
+
+/* Bottone di default (spesso quello per "Salva" o "OK") colorato */
+.button:default {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: #1e1e1e;
+    -fx-font-weight: bold;
+}
+.button:default:hover {
+    -fx-background-color: derive(-fx-accent, 20%);
+}
+
+/* --- TEXT FIELDS & INPUTS --- */
+.text-input {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #808080;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #404040;
+    -fx-border-width: 1px;
+    -fx-padding: 6px;
+}
+
+.text-input:focused {
+    -fx-border-color: -fx-accent;
+    -fx-background-color: #323232;
+    -fx-effect: dropshadow(three-pass-box, -fx-faint-focus-color, 5, 0, 0, 0);
+}
+
+/* --- TABLE VIEW (Con FIX Selezione) --- */
+.table-view, .tree-table-view, .list-view {
+    -fx-background-color: transparent;
+    -fx-border-color: #404040;
+    -fx-border-radius: 5px;
+    -fx-background-insets: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2d2d2d;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #404040;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 35px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #cccccc;
+    -fx-font-weight: bold;
+}
+
+/* RIGHE TABELLA */
+.table-row-cell {
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+}
+
+/* FIX SELEZIONE: Bordo brillante per visibilità su righe rosse/arancioni */
+.table-row-cell:filled:selected, 
+.tree-table-row-cell:filled:selected,
+.list-cell:filled:selected {
+    -fx-background-color: rgba(61, 170, 245, 0.25); /* Sfondo semi-trasparente */
+    -fx-border-color: -fx-accent;                    /* Bordo Solido Blu */
+    -fx-border-width: 2px;                           /* Bordo più spesso per visibilità */
+    -fx-border-insets: 0;
+}
+
+.table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: white;
+}
+
+/* --- SCROLL BARS (Modern & Minimal) --- */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical {
+    -fx-pref-width: 10px;
+}
+.scroll-bar:horizontal {
+    -fx-pref-height: 10px;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #555;
+    -fx-background-radius: 5px;
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: #777;
+}
+.scroll-bar .track {
+    -fx-background-color: #2d2d2d;
+    -fx-background-radius: 5px;
+}
+/* Nascondi le frecce della scrollbar per look moderno */
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-visible: false;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}
+
+/* --- CHECKBOX & RADIO --- */
+.check-box .box, .radio-button .radio {
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #555;
+    -fx-border-radius: 3px;
+}
+.check-box:selected .mark, .radio-button:selected .dot {
+    -fx-background-color: -fx-accent;
+}
+
+/* --------------------------------------------------------- */
+/* FIX DATE PICKER (Modern Dark Theme)                       */
+/* --------------------------------------------------------- */
+
+/* Il contenitore principale del popup del calendario */
+.date-picker-popup {
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #404040;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.6), 8, 0, 0, 0);
+}
+
+/* L'area interna che contiene i giorni */
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #2d2d2d;
+}
+
+/* Colore del testo mese/anno nell'intestazione */
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: -fx-light-text-color;
+}
+
+/* --------------------------------------------------------- */
+/* FIX DATE PICKER BUTTONS (Dark Theme - Geometria Corretta) */
+/* --------------------------------------------------------- */
+
+/* Contenitore Spinner e Pulsanti: Reset dimensioni e bordi */
+.date-picker-popup .month-year-pane .spinner,
+.date-picker-popup .month-year-pane .spinner .button,
+.date-picker-popup .month-year-pane .spinner .increment-arrow-button,
+.date-picker-popup .month-year-pane .spinner .decrement-arrow-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 3px;
+
+    /* PADDING UNIFORME: Questo è il fix per la larghezza.
+     *      0.5em rende il bottone quadrato, identico al tema chiaro. */
+    -fx-padding: 0.5em;
+}
+
+/* Effetto Hover */
+.date-picker-popup .month-year-pane .spinner .button:hover,
+.date-picker-popup .month-year-pane .spinner .increment-arrow-button:hover,
+.date-picker-popup .month-year-pane .spinner .decrement-arrow-button:hover {
+    -fx-background-color: #3a3a3a; /* Grigio scuro per l'hover */
+    -fx-cursor: hand;
+}
+
+/* Freccia (Triangolo) */
+.date-picker-popup .month-year-pane .spinner .button .left-arrow,
+.date-picker-popup .month-year-pane .spinner .button .right-arrow,
+.date-picker-popup .month-year-pane .spinner .increment-arrow-button .increment-arrow,
+.date-picker-popup .month-year-pane .spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color: -fx-light-text-color; /* Frecce bianche/chiare */
+    -fx-background-insets: 0;
+    -fx-effect: null;
+    -fx-padding: 0.25em 0.333333em 0.25em 0.333333em; /* Dimensione freccia standard */
+}
+
+/* Stato Premuto */
+.date-picker-popup .month-year-pane .spinner .button:pressed,
+.date-picker-popup .month-year-pane .spinner .increment-arrow-button:pressed,
+.date-picker-popup .month-year-pane .spinner .decrement-arrow-button:pressed {
+    -fx-background-color: #222222;
+}
+/* La griglia dei giorni */
+.date-picker-popup .calendar-grid {
+    -fx-background-color: #2d2d2d;
+}
+
+/* Intestazioni dei giorni (Lun, Mar, Mer...) */
+.date-picker-popup .day-name-cell {
+    -fx-text-fill: -fx-mid-text-color;
+    -fx-font-weight: bold;
+}
+
+/* Le celle dei giorni (numeri) */
+.date-picker-popup .day-cell {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: -fx-light-text-color;
+    -fx-border-color: transparent;
+}
+
+/* Hover su un giorno */
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #3a3a3a;
+    -fx-border-color: #555;
+}
+
+/* Giorno selezionato */
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: white;
+}
+
+/* Giorno "Oggi" (se non selezionato) */
+.date-picker-popup .day-cell:today {
+    -fx-border-color: -fx-accent;
+    -fx-text-fill: -fx-accent;
+    -fx-font-weight: bold;
+}
+/* Giorno "Oggi" quando è anche selezionato */
+.date-picker-popup .day-cell:today:selected {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+/* Colore dei giorni che appartengono al mese precedente/successivo */
+.date-picker-popup .day-cell:previous-month,
+.date-picker-popup .day-cell:next-month {
+    -fx-text-fill: #555555; /* Grigio scuro per nasconderli visivamente un po' */
+}

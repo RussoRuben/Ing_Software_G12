@@ -1,0 +1,268 @@
+/* modern-light.css */
+
+.root {
+    /* --- Palette Colori --- */
+    -fx-base: #f4f6f8;              /* Grigio chiarissimo moderno */
+    -fx-background: #f4f6f8;
+    
+    -fx-control-inner-background: #ffffff; /* Sfondo bianco puro per input */
+    -fx-control-inner-background-alt: #fafafa;
+
+    -fx-accent: #007bff;            /* Blu stile Bootstrap */
+    -fx-focus-color: #007bff;
+    -fx-faint-focus-color: rgba(0, 123, 255, 0.25);
+
+    /* Testo */
+    -fx-light-text-color: #ffffff;
+    -fx-mid-text-color: #555555;
+    -fx-dark-text-color: #212529;   /* Grigio scuro (non nero puro) per leggibilità */
+    
+    -fx-text-fill: #212529;
+
+    /* Geometria */
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* --- BUTTONS --- */
+.button {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #ced4da;      /* Bordo grigio sottile */
+    -fx-border-width: 1px;
+    -fx-padding: 5px 12px;
+}
+
+.button:hover {
+    -fx-background-color: #e2e6ea;
+    -fx-border-color: #adb5bd;
+    -fx-cursor: hand;
+}
+
+.button:pressed {
+    -fx-background-color: #dae0e5;
+}
+
+/* Bottone Default (Primary) */
+.button:default {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+.button:default:hover {
+    -fx-background-color: derive(-fx-accent, -10%);
+}
+
+/* --- TEXT FIELDS --- */
+.text-input {
+    -fx-background-color: white;
+    -fx-text-fill: #212529;
+    -fx-prompt-text-fill: #adb5bd;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1px;
+    -fx-padding: 6px;
+}
+
+.text-input:focused {
+    -fx-border-color: -fx-accent;
+    -fx-effect: dropshadow(three-pass-box, -fx-faint-focus-color, 5, 0, 0, 0);
+}
+
+/* --- TABLE VIEW (Con FIX Selezione) --- */
+.table-view, .tree-table-view, .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #dee2e6;
+    -fx-border-radius: 5px;
+    -fx-background-insets: 0;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f8f9fa;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #dee2e6;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: transparent;
+    -fx-size: 35px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #495057;
+    -fx-font-weight: bold;
+}
+
+/* RIGHE TABELLA */
+.table-row-cell {
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+}
+
+/* FIX SELEZIONE: Sfondo azzurrino + Bordo Blu per separare da righe colorate */
+.table-row-cell:filled:selected, 
+.tree-table-row-cell:filled:selected, 
+.list-cell:filled:selected {
+    -fx-background-color: rgba(0, 123, 255, 0.15); /* Sfondo molto chiaro */
+    -fx-border-color: -fx-accent;                  /* Bordo Blu */
+    -fx-border-width: 1px;
+    -fx-border-insets: 0;
+}
+
+.table-row-cell:filled:selected .table-cell {
+    -fx-text-fill: black; /* Testo nero su selezione chiara */
+}
+
+/* --- SCROLL BARS (Modern) --- */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+.scroll-bar:vertical {
+    -fx-pref-width: 10px;
+}
+.scroll-bar:horizontal {
+    -fx-pref-height: 10px;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #ced4da;
+    -fx-background-radius: 5px;
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: #adb5bd;
+}
+.scroll-bar .track {
+    -fx-background-color: #f1f1f1;
+    -fx-background-radius: 5px;
+}
+.scroll-bar .increment-button, .scroll-bar .decrement-button {
+    -fx-visible: false;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}
+
+/* --- CHECKBOX & RADIO --- */
+.check-box .box, .radio-button .radio {
+    -fx-background-color: white;
+    -fx-border-color: #ced4da;
+    -fx-border-radius: 3px;
+}
+.check-box:selected .mark, .radio-button:selected .dot {
+    -fx-background-color: -fx-accent;
+}
+.check-box:selected .box, .radio-button:selected .radio {
+    -fx-border-color: -fx-accent;
+}
+
+/* --------------------------------------------------------- */
+/* FIX DATE PICKER (Modern Light Theme)                      */
+/* --------------------------------------------------------- */
+
+/* Il contenitore del popup: Bianco puro con ombra leggera */
+.date-picker-popup {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1px;
+    /* Un'ombra morbida per staccarlo dallo sfondo */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.15), 8, 0, 0, 0);
+}
+
+/* Intestazione Mese/Anno: Grigio chiarissimo per distinguersi dalla griglia */
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+    -fx-border-width: 0 0 1px 0; /* Solo bordo inferiore */
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: #333333;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+/* --- FIX DATE PICKER BUTTONS (Light Theme) --- */
+
+/* 1. RESET TOTALE DEI PULSANTI
+ *  Targettiamo sia la classe generica .button che quelle specifiche dello spinner (.increment/decrement)
+ *  per sovrascrivere lo stile globale dei bottoni definito a inizio file. */
+.date-picker-popup .spinner .button,
+.date-picker-popup .spinner .increment-arrow-button,
+.date-picker-popup .spinner .decrement-arrow-button {
+    -fx-background-color: transparent; /* Toglie il bianco */
+    -fx-border-color: transparent;     /* Toglie il bordo grigio visibile nello screen */
+    -fx-background-radius: 3px;        /* Arrotondamento leggero per l'hover */
+    -fx-background-insets: 0;
+    -fx-padding: 0.5em;                /* Spaziatura corretta */
+}
+
+/* 2. EFFETTO HOVER (Solo al passaggio del mouse)
+ *  Appare un grigio chiaro come sfondo */
+.date-picker-popup .spinner .button:hover,
+.date-picker-popup .spinner .increment-arrow-button:hover,
+.date-picker-popup .spinner .decrement-arrow-button:hover {
+    -fx-background-color: #e2e6ea;     /* Grigio chiaro visibile */
+    -fx-border-color: transparent;     /* Assicura che il bordo resti invisibile */
+    -fx-cursor: hand;
+}
+
+/* 3. COLORE DELLE FRECCE (I triangolini)
+ *  Devono essere scuri per vedersi sullo sfondo trasparente/bianco */
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow,
+.date-picker-popup .spinner .increment-arrow-button .increment-arrow,
+.date-picker-popup .spinner .decrement-arrow-button .decrement-arrow {
+    -fx-background-color: #333333;     /* Grigio scuro/Nero */
+    -fx-background-insets: 0;
+    -fx-padding: 0.25em 0.333333em 0.25em 0.333333em; /* Dimensioni freccia */
+    -fx-effect: null;                  /* Rimuove eventuali ombre interne */
+}
+
+/* Griglia dei giorni */
+.date-picker-popup .calendar-grid {
+    -fx-background-color: #ffffff;
+}
+
+/* Nomi dei giorni (Lun, Mar...) */
+.date-picker-popup .day-name-cell {
+    -fx-text-fill: #6c757d; /* Grigio medio */
+    -fx-font-weight: bold;
+}
+
+/* Celle numeriche */
+.date-picker-popup .day-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #212529;
+    -fx-border-color: transparent;
+}
+
+/* Hover su un giorno */
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #e2e6ea; /* Grigio chiaro al passaggio */
+    -fx-text-fill: #212529;
+}
+
+/* Giorno selezionato: Blu solido */
+.date-picker-popup .day-cell:selected {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: white;
+}
+
+/* Giorno "Oggi" (Bordo colorato) */
+.date-picker-popup .day-cell:today {
+    -fx-border-color: -fx-accent;
+    -fx-text-fill: -fx-accent;
+    -fx-font-weight: bold;
+}
+.date-picker-popup .day-cell:today:selected {
+    -fx-background-color: -fx-accent;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+/* Giorni mese precedente/successivo: Grigio chiaro per nasconderli un po' */
+.date-picker-popup .day-cell:previous-month,
+.date-picker-popup .day-cell:next-month {
+    -fx-text-fill: #adb5bd;
+}

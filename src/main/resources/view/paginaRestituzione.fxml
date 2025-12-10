@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="500.0" minWidth="600.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gruppo12.bibliotecaunisa.controller.ControllerRestituzione">
+    <children>
+          <Label text="Restituzione prestito">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" spacing="150.0">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="Studente">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="20.0">
+                     <children>
+                        <VBox spacing="20.0">
+                           <children>
+                              <Label text="Matricola:" />
+                              <Label text="Nome: " />
+                              <Label text="Cognome:" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label fx:id="labelMatricola" />
+                              <Label fx:id="labelNome" />
+                              <Label fx:id="labelCognome" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="Libro">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="20.0">
+                     <children>
+                        <VBox spacing="20.0">
+                           <children>
+                              <Label text="Codice:" />
+                              <Label text="Titolo:" />
+                              <Label text="Autori:" />
+                           </children>
+                        </VBox>
+                        <VBox spacing="20.0">
+                           <children>
+                              <Label fx:id="labelCodice" />
+                              <Label fx:id="labelTitolo" />
+                              <Label fx:id="labelAutori" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets top="15.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER" spacing="80.0">
+         <children>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Data inizio:" />
+                  <Label fx:id="labelDataInizioPrestito" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Data fine:" />
+                  <Label fx:id="labelDataFinePrestito" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </HBox>
+        <HBox alignment="CENTER" spacing="20.0">
+            <children>
+                <Button fx:id="bottoneConferma" mnemonicParsing="false" onAction="#conferma" prefWidth="100.0" text="Conferma" />
+                <Button fx:id="bottoneAnnulla" mnemonicParsing="false" onAction="#cancella" prefWidth="100.0" text="Annulla" />
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+        </HBox>
+    </children>
+</VBox>
