@@ -10,7 +10,7 @@ import gruppo12.bibliotecaunisa.repository.StudenteRepository;
  * 
  */
 public class BibliotecaData {
-
+    
     private static final String DEFAULT_PATH = "data/stato.bin";
 
     private final LibroRepository libroRepo;

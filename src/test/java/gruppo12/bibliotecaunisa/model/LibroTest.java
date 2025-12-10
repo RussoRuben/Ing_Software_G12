@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class LibroTest {
-
     private Libro libro;
     private List<String> autori;
 

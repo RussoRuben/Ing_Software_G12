@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 
+
 /**
  * @brief Modello dati che rappresenta un Libro
  * @class Libro
