@@ -27,7 +27,7 @@ class StudenteRepositoryTest {
 
     /**
      * @test verifica che lo studente venga aggiunto correttamente
-     * @brief Verifico che lo studente sia presente nella repository dopo averlo aggiunto
+     * @brief Verifica che lo studente sia presente nella repository dopo averlo aggiunto
      */
     @Test
     void testAdd() {
@@ -37,7 +37,7 @@ class StudenteRepositoryTest {
 
     /**
      * @test verifica che lo studente venga rimosso correttamente
-     * @brief verifico che lo studente venga rimosso dalla repository correttamente
+     * @brief Verifica che lo studente venga rimosso dalla repository correttamente
      */
     @Test
     void testRemoveStudent() {
