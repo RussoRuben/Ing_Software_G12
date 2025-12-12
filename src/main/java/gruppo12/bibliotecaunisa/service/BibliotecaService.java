@@ -1,9 +1,8 @@
 package gruppo12.bibliotecaunisa.service;
 
+import gruppo12.bibliotecaunisa.model.*;
 import gruppo12.bibliotecaunisa.data.BibliotecaData;
-import gruppo12.bibliotecaunisa.model.Libro;
-import gruppo12.bibliotecaunisa.model.Prestito;
-import gruppo12.bibliotecaunisa.model.Studente;
+import java.time.LocalDate;
 import java.util.List;
 import javafx.collections.ObservableList;
 
@@ -24,12 +23,15 @@ public class BibliotecaService {
         this.data = data;
     }
     
+    // Metodi repo libro
+
     /**
      * @brief Aggiunge un nuovo libro al sistema
      * @param libro Oggetto di tipo Libro
      */
     public void aggiungiLibro(Libro libro) {
-
+        data.getLibroRepo().add(libro);
+        data.salvaStato();
     }
 
     /**
@@ -43,6 +45,18 @@ public class BibliotecaService {
      * @param copie 
      */
     public void modificaLibro(String codice, String titolo, List<String> autori, String editore, int numeroEdizione, int anno, int copie) {
+        Libro libro = data.getLibroRepo().findByKey(codice);
+        
+        if(libro == null) return;
+        
+        libro.setTitolo(titolo);
+        libro.setAutori(autori);
+        libro.setEditore(editore);
+        libro.setNumeroEdizione(numeroEdizione);
+        libro.setAnno(anno);
+        libro.setCopieDisponibili(copie);
+        
+        data.salvaStato();
 
     }
     
@@ -51,6 +65,11 @@ public class BibliotecaService {
      * @param libro Oggetto di tipo Libro
      */
     public void rimuoviLibro(Libro libro) {
+        boolean haPrestito = data.getPrestitoRepo().getAll().stream().anyMatch(p -> p.getLibro().getCodice().equals(libro.getCodice()));
+        
+        data.getLibroRepo().remove(libro);
+        
+        data.salvaStato();
 
     }
     
@@ -58,7 +77,7 @@ public class BibliotecaService {
      * @return Restituisce una lista osservabile dei libri
      */
     public ObservableList<Libro> getLibri() {
-        throw new UnsupportedOperationException("Not supported yet.");
+         return data.getLibroRepo().getAll();
     }
     
     /**
@@ -67,15 +86,19 @@ public class BibliotecaService {
     * @return Restituisce il libro relativo al codice 
     */
     public Libro trovaLibro(String codice) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return data.getLibroRepo().findByKey(codice);
     }
+
+    
+    // Metodi repo studente
 
     /**
      * @brief Aggiunge uno studente al sistema
      * @param studente oggetto di tipo Studente
      */
     public void aggiungiStudente(Studente studente) {
-
+        data.getStudenteRepo().add(studente);
+        data.salvaStato();
     }
 
     /**
@@ -86,6 +109,15 @@ public class BibliotecaService {
      * @param email 
      */
     public void modificaStudente(String matricola, String nome, String cognome, String email) {
+        Studente studente = data.getStudenteRepo().findByKey(matricola);
+        
+        if(studente == null) return;
+        
+        studente.setNome(nome);
+        studente.setCognome(cognome);
+        studente.setEmail(email);
+        
+        data.salvaStato();
 
     }
 
@@ -94,6 +126,8 @@ public class BibliotecaService {
      * @param studente Oggetto di tipo Studente
      */
     public void rimuoviStudente(Studente studente) {
+        data.getStudenteRepo().remove(studente);
+        data.salvaStato();
 
     }
 
@@ -101,7 +135,8 @@ public class BibliotecaService {
      * @return Restituisce una lista osservabile di studenti
      */
     public ObservableList<Studente> getStudenti() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return data.getStudenteRepo().getAll();
+
     }
     
     /**
@@ -110,7 +145,7 @@ public class BibliotecaService {
      * @return Restituisce lo studente relativo alla matricola
      */
     public Studente trovaStudente(String matricola) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return data.getStudenteRepo().findByKey(matricola);
     }
 
     /**
@@ -118,6 +153,14 @@ public class BibliotecaService {
      * @param prestito oggetto di tipo Prestito
      */
     public void aggiungiPrestito(Prestito prestito) {
+        int copie = prestito.getLibro().getCopieDisponibili();
+        prestito.getLibro().setCopieDisponibili(--copie);
+        
+        prestito.getStudente().aggiungiListaPrestiti(prestito);
+
+        data.getPrestitoRepo().add(prestito);
+        
+        data.salvaStato();
 
     }
 
@@ -126,6 +169,17 @@ public class BibliotecaService {
      * @param prestito 
      */
     public void restituisciPrestito(Prestito prestito) {
+        int copie = prestito.getLibro().getCopieDisponibili();
+        prestito.getLibro().setCopieDisponibili(copie+1);
+        
+        data.getPrestitoRepo().remove(prestito);
+        
+        prestito.setDataFine(LocalDate.now());
+        data.getPrestitoRepo().addArchiviato(prestito);
+        
+        prestito.getStudente().rimuoviListaPrestiti(prestito);
+        
+        data.salvaStato();
 
     }
 
@@ -133,14 +187,16 @@ public class BibliotecaService {
      * @return Restituisce una lista osservabile dei prestiti
      */
     public ObservableList<Prestito> getPrestiti() {
-        throw new UnsupportedOperationException("Not supported yet.");
+         return data.getPrestitoRepo().getAll();
+
     }
     /**
      * 
      * @return Restituisce una lista osservabile dei prestiti archiviati
      */
     public ObservableList<Prestito> getPrestitiArchiviati() {
-        throw new UnsupportedOperationException("Not supported yet.");
+         return data.getPrestitoRepo().getAllArchiviati();
+
     }
     /**
      * @brief Cerca prestito in base al codice
@@ -148,7 +204,8 @@ public class BibliotecaService {
      * @return Restituisce il prestito corrispondente al codice
      */
     public Prestito trovaPrestito(long codice) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return data.getPrestitoRepo().findByKey(codice);
+
     }
     /**
      * @brief Cerca un prestito archiviato in base al codice
@@ -156,7 +213,8 @@ public class BibliotecaService {
      * @return Restituisce il prestito archiviato corrispondente al codice
      */
     public Prestito trovaPrestitoArchiviato(long codice) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return data.getPrestitoRepo().findArchiviatoByKey(codice);
+
     }
 
 }
