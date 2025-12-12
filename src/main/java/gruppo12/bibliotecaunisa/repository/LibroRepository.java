@@ -38,8 +38,7 @@ public class LibroRepository implements Repository<String, Libro>{
     /**
      * @brief Rimuove un libro dal Repository
      * @param libro Oggetto che deve essere rimosso 
-     * @return true se il libro è stato rimosso con successo,false altrimenti
-     * @throws UnsupportedOperationException Se l'operazione non è ancora realizzata 
+     * @return true se il libro è stato rimosso con successo,false altrimenti 
     */
     @Override
     public boolean remove(Libro libro) {
@@ -54,7 +53,6 @@ public class LibroRepository implements Repository<String, Libro>{
     /**
      * @brief Restituisce una lista osservabile dei libri presenti nel Repository
      * @return una ObservableList<Libro> che contiene tutti i libri 
-     * @throws UnsupportedOperationException Se l'operazione non è ancora realizzata 
      */
     @Override
     public ObservableList<Libro> getAll() {
@@ -65,7 +63,6 @@ public class LibroRepository implements Repository<String, Libro>{
      * @brief Cerca un libro attraverso il suo codice ISBN 
      * @param codice Il codice ISBN del libro che deve essere cercato
      * @return L'oggetto Libro corrispondente al suo codice,o null se non trovato
-     * @throws UnsupportedOperationException Se l'operazione non è ancora realizzata 
      */
     @Override
     public Libro findByKey(String codice) {
