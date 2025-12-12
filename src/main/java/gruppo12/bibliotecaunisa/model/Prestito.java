@@ -40,7 +40,7 @@ public class Prestito {
      * @brief Imposta il numero seriale del prestito
      * @param nuovoNum numero prestito
      */
-    public void setNum(long nuovoNum) {
+    public static void setNum(long nuovoNum) {
         num=nuovoNum;
     }
 
