@@ -51,7 +51,7 @@ public class LibroRepositoryTest {
      * non presente nella repository
      */
     @Test
-    void testRemoveStudentNonEx() {
+    void testRimuoviLibroNonEx() {
         rep.add(l1);
         assertFalse(rep.remove(l2));
     }
