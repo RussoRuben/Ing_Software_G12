@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane minHeight="480.0" minWidth="640.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gruppo12.bibliotecaunisa.controller.ControllerPrincipale">
-    <children>s
+    <children>
         <TabPane fx:id="tabPane" prefHeight="476.0" prefWidth="946.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
                 <Tab fx:id="tabLibro" text="Gestione Libri">
