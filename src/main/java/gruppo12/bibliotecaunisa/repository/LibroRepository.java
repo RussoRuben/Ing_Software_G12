@@ -23,7 +23,16 @@ public class LibroRepository implements Repository<String, Libro>{
      */
     @Override
     public void add(Libro libro) {
-        
+        Libro esistente = libriMap.get(libro.getCodice());
+        if (esistente == null) {
+            libri.add(libro);
+            libriMap.put(libro.getCodice(), libro);
+        } else {
+            esistente.setTitolo(libro.getTitolo());
+            esistente.setAutori(libro.getAutori());
+            esistente.setAnno(libro.getAnno());
+            esistente.setCopieDisponibili(libro.getCopieDisponibili());
+        }
     }
     
     /**
@@ -34,7 +43,11 @@ public class LibroRepository implements Repository<String, Libro>{
     */
     @Override
     public boolean remove(Libro libro) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (libri.remove(libro)) {
+            libriMap.remove(libro.getCodice());
+            return true;
+        }
+        return false;
     }
     
     
@@ -45,7 +58,7 @@ public class LibroRepository implements Repository<String, Libro>{
      */
     @Override
     public ObservableList<Libro> getAll() {
-        throw new UnsupportedOperationException("Not supported yet.");       
+        return libri;
     }
     
     /**
@@ -56,7 +69,7 @@ public class LibroRepository implements Repository<String, Libro>{
      */
     @Override
     public Libro findByKey(String codice) {
-        throw new UnsupportedOperationException("Not supported yet.");      
+        return libriMap.get(codice);      
     }
     
     /**
@@ -65,7 +78,11 @@ public class LibroRepository implements Repository<String, Libro>{
      */
     @Override
     public void replaceAll(List<Libro> nuoviDati) {
-
+        libri.setAll(nuoviDati);
+        libriMap.clear();
+        for (Libro l : nuoviDati) {
+            libriMap.put(l.getCodice(), l);
+        }
     }
     
 }

@@ -26,6 +26,11 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
      */
     @Override
     public void add(Prestito prestito) {
+        // assegno il prestito alla lista prestiti dello studente
+        prestito.getStudente().aggiungiListaPrestiti(prestito);
+
+        prestiti.add(prestito);
+        prestitiMap.put(prestito.getCodice(), prestito);
 
     }
     /**
@@ -36,7 +41,11 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
     */
     @Override
     public boolean remove(Prestito prestito) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (prestiti.remove(prestito)) {
+            prestitiMap.remove(prestito.getCodice());
+            return true;
+        }
+        return false;
     }
     
     /**
@@ -46,7 +55,7 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
      */
     @Override
     public ObservableList<Prestito> getAll() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return prestiti;
     }
     
     /**
@@ -57,7 +66,7 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
      */
     @Override
     public Prestito findByKey(Long codice) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return prestitiMap.get(codice);
     }
     
     /**
@@ -67,7 +76,11 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
     
     @Override
     public void replaceAll(List<Prestito> nuoviDati) {
-    
+        prestiti.setAll(nuoviDati);
+        prestitiMap.clear();
+        for (Prestito p : nuoviDati) {
+            prestitiMap.put(p.getCodice(), p);
+        }
     }
     /**
      * @brief Aggiunge un prestito alla collezione dei prestiti archiviati
@@ -75,7 +88,8 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
      */
 
     public void addArchiviato(Prestito prestito) {
-
+        prestitiArchiviati.add(prestito);
+        prestitiArchiviatiMap.put(prestito.getCodice(), prestito);
     }
     
     /**
@@ -83,7 +97,8 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
      * @param prestito Il prestito che deve essere rimosso dall'archivio
      */
     public void removeArchiviato(Prestito prestito) {
-
+        prestitiArchiviati.remove(prestito);
+        prestitiArchiviatiMap.remove(prestito.getCodice());
     }
     
     /**
@@ -92,7 +107,7 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
      * @throws UnsupportedOperationException Se l'operazione non è ancora realizzata 
      */
     public ObservableList<Prestito> getAllArchiviati() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return prestitiArchiviati;
     }
     
     /**
@@ -102,7 +117,7 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
      * @throws UnsupportedOperationException Se l'operazione non è ancora realizzata 
      */
     public Prestito findArchiviatoByKey(Long codice) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return prestitiArchiviatiMap.get(codice);
     }
     
     /**
@@ -110,6 +125,10 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
      * @param nuoviDati La List<Prestito> che contiene i nuovi dati
      */
     public void replaceAllArchiviati(List<Prestito> nuoviDati) {
-
+        prestitiArchiviati.setAll(nuoviDati);
+        prestitiArchiviatiMap.clear();
+        for (Prestito p : nuoviDati) {
+            prestitiArchiviatiMap.put(p.getCodice(), p);
+        }
     }
 }
