@@ -194,4 +194,21 @@ public class Studente implements Serializable{
     public String toString() {
         return matricola + ": " + nome + " " + cognome;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Studente s = (Studente) o;
+        return matricola.equals(s.matricola);
+    }
+
+    @Override
+    public int hashCode() {
+        return matricola.hashCode();
+    }
 }

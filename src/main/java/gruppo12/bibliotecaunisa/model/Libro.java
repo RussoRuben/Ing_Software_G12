@@ -190,4 +190,21 @@ public class Libro implements Serializable{
     public String toString() {
          return codice + ": " + titolo;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Libro l = (Libro) o;
+        return codice.equals(l.codice);
+    }
+
+    @Override
+    public int hashCode() {
+        return codice.hashCode();
+    }
 }

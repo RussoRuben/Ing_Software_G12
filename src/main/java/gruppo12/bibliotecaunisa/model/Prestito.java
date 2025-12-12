@@ -107,4 +107,21 @@ public class Prestito implements Serializable {
     public void setDataFine(LocalDate dataFine) {
         this.dataFine = dataFine;
     }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Prestito p = (Prestito) o;
+        return codice == p.codice;
+    }
+
+    @Override
+    public int hashCode() {
+        return Long.hashCode(codice);
+    }
 }
