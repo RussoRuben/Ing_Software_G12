@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane minHeight="480.0" minWidth="640.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gruppo12.bibliotecaunisa.controller.ControllerPrincipale">
-    <center>
-        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+<AnchorPane minHeight="480.0" minWidth="640.0" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gruppo12.bibliotecaunisa.controller.ControllerPrincipale">
+    <children>s
+        <TabPane fx:id="tabPane" prefHeight="476.0" prefWidth="946.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <tabs>
                 <Tab fx:id="tabLibro" text="Gestione Libri">
                     <content>
@@ -21,18 +21,18 @@
                             <children>
                                 <HBox alignment="CENTER_LEFT" spacing="20.0">
                                     <children>
-                              <HBox alignment="CENTER_LEFT" spacing="20.0">
-                                 <children>
-                                              <Button fx:id="bottoneAggiungiLibro" mnemonicParsing="false" onAction="#mostraPaginaAggiungiLibro" text="Aggiungi " />
-                                              <Button fx:id="bottoneVisualizzaLibro" disable="true" mnemonicParsing="false" onAction="#mostraPaginaVisualizzaLibro" text="Visualizza" />
-                                              <TextField fx:id="cercaLibro" prefWidth="200.0" promptText="cerca ( ISBN / Titolo / Atuore )" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#cambiaTema" text="Tema" />
-                                 </children>
-                              </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                                            <children>
+                                                <Button fx:id="bottoneAggiungiLibro" mnemonicParsing="false" onAction="#mostraPaginaAggiungiLibro" text="Aggiungi " />
+                                                <Button fx:id="bottoneVisualizzaLibro" disable="true" mnemonicParsing="false" onAction="#mostraPaginaVisualizzaLibro" text="Visualizza" />
+                                                <TextField fx:id="cercaLibro" prefWidth="200.0" promptText="cerca ( ISBN / Titolo / Atuore )" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#cambiaTema" text="Tema" />
+                                            </children>
+                                        </HBox>
                                     </children>
                                     <padding>
                                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -46,9 +46,9 @@
                                         <TableColumn fx:id="colonnaAnno" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Anno" />
                                         <TableColumn fx:id="colonnaCopieDisponibili" maxWidth="80.0" minWidth="80.0" text="Copie" />
                                     </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
                                 </TableView>
                             </children>
                         </VBox>
@@ -60,18 +60,18 @@
                             <children>
                                 <HBox spacing="20.0">
                                     <children>
-                              <HBox alignment="CENTER_LEFT" spacing="20.0">
-                                 <children>
-                                              <Button fx:id="bottoneAggiungiStudente" mnemonicParsing="false" onAction="#mostraPaginaAggiungiStudente" text="Aggiungi" />
-                                              <Button fx:id="bottoneVisualizzaStudente" disable="true" mnemonicParsing="false" onAction="#mostraPaginaVisualizzaStudente" text="Visualizza" />
-                                              <TextField fx:id="cercaStudente" prefWidth="200.0" promptText="cerca ( Matricola / Cognome )" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#cambiaTema" text="Tema" />
-                                 </children>
-                              </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                                            <children>
+                                                <Button fx:id="bottoneAggiungiStudente" mnemonicParsing="false" onAction="#mostraPaginaAggiungiStudente" text="Aggiungi" />
+                                                <Button fx:id="bottoneVisualizzaStudente" disable="true" mnemonicParsing="false" onAction="#mostraPaginaVisualizzaStudente" text="Visualizza" />
+                                                <TextField fx:id="cercaStudente" prefWidth="200.0" promptText="cerca ( Matricola / Cognome )" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#cambiaTema" text="Tema" />
+                                            </children>
+                                        </HBox>
                                     </children>
                                     <padding>
                                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -84,9 +84,9 @@
                                         <TableColumn fx:id="colonnaCognome" minWidth="100.0" prefWidth="200.0" text="Cognome" />
                                         <TableColumn fx:id="colonnaEmail" minWidth="100.0" prefWidth="200.0" text="Email" />
                                     </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
                                 </TableView>
                             </children>
                         </VBox>
@@ -98,18 +98,18 @@
                             <children>
                                 <HBox spacing="20.0">
                                     <children>
-                              <HBox alignment="CENTER_LEFT" spacing="20.0">
-                                 <children>
-                                              <Button fx:id="bottoneAggiungiPrestito" mnemonicParsing="false" onAction="#mostraPaginaPrestito" text="Nuovo Prestito" />
-                                              <Button fx:id="bottoneRestituzionePrestito" disable="true" mnemonicParsing="false" onAction="#mostraPaginaRestituzione" text="Restituzione" />
-                                              <TextField fx:id="cercaPrestito" prefWidth="200.0" promptText="cerca ( Codice / Matricola )" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#cambiaTema" text="Tema" />
-                                 </children>
-                              </HBox>
+                                        <HBox alignment="CENTER_LEFT" spacing="20.0">
+                                            <children>
+                                                <Button fx:id="bottoneAggiungiPrestito" mnemonicParsing="false" onAction="#mostraPaginaPrestito" text="Nuovo Prestito" />
+                                                <Button fx:id="bottoneRestituzionePrestito" disable="true" mnemonicParsing="false" onAction="#mostraPaginaRestituzione" text="Restituzione" />
+                                                <TextField fx:id="cercaPrestito" prefWidth="200.0" promptText="cerca ( Codice / Matricola )" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#cambiaTema" text="Tema" />
+                                            </children>
+                                        </HBox>
                                     </children>
                                     <padding>
                                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -119,58 +119,57 @@
                                     <columns>
                                         <TableColumn fx:id="colonnaCodicePrestito" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Codice" />
                                         <TableColumn fx:id="colonnaDataInizioPrestito" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" text="Data Inizio Prestito" />
-                              <TableColumn fx:id="colonnaDataFinePrestito" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" text="Data Fine Prestito" />
+                                        <TableColumn fx:id="colonnaDataFinePrestito" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" text="Data Fine Prestito" />
                                         <TableColumn fx:id="colonnaStudentePrestito" minWidth="100.0" prefWidth="250.0" text="Studente" />
                                         <TableColumn fx:id="colonnaLibroPrestito" minWidth="100.0" prefWidth="250.0" text="Libro" />
                                     </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
                                 </TableView>
                             </children>
                         </VBox>
                     </content>
                 </Tab>
-            <Tab fx:id="tabArchivioPrestiti" text="Archivio Prestiti">
-               <content>
-                  <VBox>
-                     <children>
-                        <HBox spacing="20.0">
-                           <children>
-                              <HBox spacing="20.0">
-                                 <children>
-                                    <Button fx:id="bottoneVisualizzaPrestitoArchiviato" disable="true" mnemonicParsing="false" onAction="#mostraVisualizzaPrestitoArchiviato" text="Visualizza" />
-                                    <TextField fx:id="cercaPrestitoArchiviato" prefWidth="200.0" promptText="cerca ( Codice / Matricola )" />
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                                 <children>
-                                    <Button mnemonicParsing="false" onAction="#cambiaTema" text="Tema" />
-                                 </children>
-                              </HBox>
-                           </children>
-                           <padding>
-                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                           </padding>
-                        </HBox>
-                        <TableView fx:id="tabellaPrestitiArchiviati" VBox.vgrow="ALWAYS">
-                           <columns>
-                              <TableColumn fx:id="colonnaCodicePrestitoArchiviato" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Codice" />
-                              <TableColumn fx:id="colonnaDataInizioPrestitoArchiviato" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" text="Data Inizio Prestito" />
-                              <TableColumn fx:id="colonnaDataFinePrestitoArchiviato" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" text="Data Fine Prestito" />
-                              <TableColumn fx:id="colonnaStudentePrestitoArchiviato" minWidth="100.0" prefWidth="250.0" text="Studente" />
-                              <TableColumn fx:id="colonnaLibroPrestitoArchiviato" minWidth="100.0" prefWidth="250.0" text="Libro" />
-                           </columns>
-                           <columnResizePolicy>
-                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                           </columnResizePolicy>
-                        </TableView>
-                     </children>
-                  </VBox>
-               </content>
-            </Tab>
+                <Tab fx:id="tabArchivioPrestiti" text="Archivio Prestiti">
+                    <content>
+                        <VBox>
+                            <children>
+                                <HBox spacing="20.0">
+                                    <children>
+                                        <HBox spacing="20.0">
+                                            <children>
+                                                <Button fx:id="bottoneVisualizzaPrestitoArchiviato" disable="true" mnemonicParsing="false" onAction="#mostraVisualizzaPrestitoArchiviato" text="Visualizza" />
+                                                <TextField fx:id="cercaPrestitoArchiviato" prefWidth="200.0" promptText="cerca ( Codice / Matricola )" />
+                                            </children>
+                                        </HBox>
+                                        <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#cambiaTema" text="Tema" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                    </padding>
+                                </HBox>
+                                <TableView fx:id="tabellaPrestitiArchiviati" VBox.vgrow="ALWAYS">
+                                    <columns>
+                                        <TableColumn fx:id="colonnaCodicePrestitoArchiviato" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Codice" />
+                                        <TableColumn fx:id="colonnaDataInizioPrestitoArchiviato" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" text="Data Inizio Prestito" />
+                                        <TableColumn fx:id="colonnaDataFinePrestitoArchiviato" maxWidth="140.0" minWidth="140.0" prefWidth="140.0" text="Data Fine Prestito" />
+                                        <TableColumn fx:id="colonnaStudentePrestitoArchiviato" minWidth="100.0" prefWidth="250.0" text="Studente" />
+                                        <TableColumn fx:id="colonnaLibroPrestitoArchiviato" minWidth="100.0" prefWidth="250.0" text="Libro" />
+                                    </columns>
+                                    <columnResizePolicy>
+                                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                    </columnResizePolicy>
+                                </TableView>
+                            </children>
+                        </VBox>
+                    </content>
+                </Tab>
             </tabs>
         </TabPane>
-    </center>
-
-</BorderPane>
+    </children>
+</AnchorPane>
