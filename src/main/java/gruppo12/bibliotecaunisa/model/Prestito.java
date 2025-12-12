@@ -7,7 +7,7 @@ import java.time.LocalDate;
  * @brief Modello dati che rappresenta un Prestito
  * @class Prestito
  */
-public class Prestito {
+public class Prestito implements Serializable {
 
     /**
      * @brief Costante per generare il numero seriale del prestito

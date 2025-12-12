@@ -24,7 +24,7 @@ public class Studente implements Serializable{
     /**
      * @brief Lista dei prestiti attivi dello studente
      */
-    private ObservableList<Prestito> listaPrestiti;
+    private transient ObservableList<Prestito> listaPrestiti;
     
     
     
@@ -49,7 +49,7 @@ public class Studente implements Serializable{
      * @brief Serializza l'oggetto su stream di Output
      * @param out Stream di Output
      */
-    public void writeObject(ObjectOutputStream out) throws IOException{
+    private void writeObject(ObjectOutputStream out) throws IOException{
         
         out.defaultWriteObject();
         out.writeObject(new ArrayList<>(listaPrestiti));
@@ -61,7 +61,7 @@ public class Studente implements Serializable{
      * @brief Deserializza l'oggetto in stream di Input
      * @param in Stream di Input
      */
-    public void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException{
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException{
         
         in.defaultReadObject();
         List<Prestito> lista = (List<Prestito>) in.readObject();
