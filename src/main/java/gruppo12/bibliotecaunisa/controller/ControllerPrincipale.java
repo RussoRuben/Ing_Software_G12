@@ -113,6 +113,7 @@ public class ControllerPrincipale implements ControllerService{
         setupFiltroRicerca(service.getStudenti(), tabellaStudenti, cercaStudente, studente -> studente.getCognome() + " " + studente.getMatricola());
         setupFiltroRicerca(service.getPrestiti(), tabellaPrestiti, cercaPrestito, prestito -> prestito.getCodice() + " " + prestito.getStudente().getMatricola());
         setupFiltroRicerca(service.getPrestitiArchiviati(), tabellaPrestitiArchiviati, cercaPrestitoArchiviato, prestito -> prestito.getCodice() + " " + prestito.getStudente().getMatricola());
+
     }
 
     @FXML
@@ -131,11 +132,18 @@ public class ControllerPrincipale implements ControllerService{
         tabellaPrestitiArchiviati.getSortOrder().add(colonnaDataFinePrestitoArchiviato);
         tabellaPrestitiArchiviati.sort();        
     }
-
+    
+    /*
+    * @Brief Seleziona una tab del TabPane principale
+    * @Param i Tab da selezionare
+    */
     public void selezionaTab(int i) {
         tabPane.getSelectionModel().select(i);
     }
-
+    
+    /*
+    * @Brief Carica la pagina aggiungi libro
+    */
     @FXML
     private void mostraPaginaAggiungiLibro() throws IOException {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaAggiungiLibro.fxml"));
@@ -147,7 +155,10 @@ public class ControllerPrincipale implements ControllerService{
 
         App.setRoot(root);
     }
-
+    
+    /*
+    * @Brief Carica la pagina visualizza libro
+    */
     @FXML
     private void mostraPaginaVisualizzaLibro() throws IOException {
         Libro libroSelezionato = tabellaLibri.getSelectionModel().getSelectedItem();
@@ -162,7 +173,10 @@ public class ControllerPrincipale implements ControllerService{
 
         App.setRoot(root);
     }
-
+    
+    /*
+    * @Brief Carica la pagina aggiungi studente
+    */
     @FXML
     private void mostraPaginaAggiungiStudente() throws IOException {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaAggiungiStudente.fxml"));
@@ -174,7 +188,10 @@ public class ControllerPrincipale implements ControllerService{
 
         App.setRoot(root);
     }
-
+    
+    /*
+    * @Brief Carica la pagina visualizza studente
+    */
     @FXML
     private void mostraPaginaVisualizzaStudente() throws IOException {
         Studente studenteSelezionato = tabellaStudenti.getSelectionModel().getSelectedItem();
@@ -190,7 +207,10 @@ public class ControllerPrincipale implements ControllerService{
 
         App.setRoot(root);
     }
-
+    
+    /*
+    * @Brief Carica la pagina di creazione prestito
+    */
     @FXML
     private void mostraPaginaPrestito() throws IOException {
 
@@ -203,7 +223,10 @@ public class ControllerPrincipale implements ControllerService{
 
         App.setRoot(root);
     }
-
+    
+    /*
+    * @Brief carica la pagina di restituzione del prestito
+    */
     @FXML
     private void mostraPaginaRestituzione() throws IOException {
 
@@ -217,7 +240,10 @@ public class ControllerPrincipale implements ControllerService{
 
         App.setRoot(root);
     }
-
+    
+    /*
+    * @Brief Carica la pagina per visualizzare il prestito archiviato
+    */
     @FXML
     private void mostraVisualizzaPrestitoArchiviato() throws IOException {
         FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaVisualizzaPrestitoArchiviato.fxml"));
@@ -230,7 +256,10 @@ public class ControllerPrincipale implements ControllerService{
         
         App.setRoot(root);
     }
-
+    
+    /*
+    * @Brief Metodo helper per raggruppare l'inizializzazione delle tabelle
+    */
     @FXML
     private void inizializzaCampiTabelle() {
         // ASSEGNAZIONE CAMPI TABELLA LIBRI
@@ -283,7 +312,10 @@ public class ControllerPrincipale implements ControllerService{
             }
         });
     }
-
+    
+    /*
+    * @Brief Metodo helper per inizializzare i binding dei bottoni della pagina principale
+    */
     @FXML
     private void inizializzaBottoni() {
 
@@ -293,7 +325,10 @@ public class ControllerPrincipale implements ControllerService{
         bottoneRestituzionePrestito.disableProperty().bind(tabellaPrestiti.getSelectionModel().selectedItemProperty().isNull());
         bottoneVisualizzaPrestitoArchiviato.disableProperty().bind(tabellaPrestitiArchiviati.getSelectionModel().selectedItemProperty().isNull());
     }
-
+    
+    /*
+    * @Brief Metodo generico per impostare il comportamento di ricerca per ogni tabella
+    */
     @FXML
     private <T> void setupFiltroRicerca(ObservableList<T> listaOriginale, TableView<T> tabella, TextField campoRicerca, Function<T, String> filtroRicerca) {
 
@@ -322,7 +357,10 @@ public class ControllerPrincipale implements ControllerService{
         }, campoRicerca.textProperty())
         );
     }
-
+    
+    /*
+    * @Brief Cambia tema chiaro/scuro
+    */
     @FXML
     private void cambiaTema() {
         Scene scene = tabPane.getScene();
