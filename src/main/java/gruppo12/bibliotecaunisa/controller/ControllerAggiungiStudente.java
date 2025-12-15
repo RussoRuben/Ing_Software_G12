@@ -87,8 +87,8 @@ public class ControllerAggiungiStudente implements ControllerService {
 
         bottoneConferma.disableProperty().bind(campiValidi.not());
     }
-    /*
-    * @Brief Conferma l'aggiunta di uno studente
+    /**
+    * @brief Conferma l'aggiunta di uno studente
     */
     @FXML
     private void conferma() throws IOException {
@@ -98,16 +98,16 @@ public class ControllerAggiungiStudente implements ControllerService {
         App.cambiaPaginaPrincipaleConTab(1, service);
     }
     
-    /*
-    * @Brief Annulla l'operazione aggiungi studente
+    /**
+    * @brief Annulla l'operazione aggiungi studente
     */
     @FXML
     private void annulla() throws IOException {
         App.cambiaPaginaPrincipaleConTab(1, service);
     }
     
-    /*
-    * @Brief Mostra popup per informare l'aggiunta di uno studente
+    /**
+    * @brief Mostra popup per informare l'aggiunta di uno studente
     */
     private void mostraPopup() {
         try {

@@ -103,8 +103,9 @@ public class ControllerAggiungiLibro implements ControllerService {
         bottoneConferma.disableProperty().bind(campiValidi.not());
     }
     
-    /*
-    * @Brief Conferma l'aggiunta di un libro verificando che i campi siano corretti
+    /**
+    * @brief Conferma l'aggiunta di un libro verificando che i campi siano corretti
+    * @throws IOException
     */
     @FXML
     private void conferma() throws IOException {
@@ -129,16 +130,18 @@ public class ControllerAggiungiLibro implements ControllerService {
         }
     }
     
-    /*
-    * @Brief Annulla l'operazione aggiungi libro
+    /**
+    * @brief Annulla l'operazione aggiungi libro
+    * @throws IOException
     */
     @FXML
     private void annulla() throws IOException {
         App.cambiaPaginaPrincipaleConTab(0, service);
     }
     
-    /*
-    * @Brief Rimuovi una copia dal campoCopieDisponibili (azionato da bottone apposito)
+    /**
+    * @brief Rimuovi una copia dal campoCopieDisponibili (azionato da bottone apposito)
+    * @throws IOException
     */
     @FXML
     private void rimuoviCopia() throws IOException {
@@ -149,8 +152,9 @@ public class ControllerAggiungiLibro implements ControllerService {
         }
     }
     
-    /*
-    * @Brief Aggiungi una copia al campoCopieDisponibili (azionato da bottone apposito)
+    /**
+    * @brief Aggiungi una copia al campoCopieDisponibili (azionato da bottone apposito)
+    * @throws IOException
     */
     @FXML
     private void aggiungiCopia() throws IOException {
@@ -159,8 +163,8 @@ public class ControllerAggiungiLibro implements ControllerService {
         campoCopieDisponibili.setText(String.valueOf(copie));
     }
     
-    /*
-    * @Brief Copila campi in automatico quando il codice del libro è già esistente nell'archivio
+    /**
+    * @brief Copila campi in automatico quando il codice del libro è già esistente nell'archivio
     */
     private void autocompilaCampi(Libro libro) {
         campoTitolo.setText(libro.getTitolo());
@@ -171,8 +175,8 @@ public class ControllerAggiungiLibro implements ControllerService {
         campoCopieDisponibili.setText(String.valueOf(libro.getCopieDisponibili()));
     }
     
-    /*
-    * @Brief Reimposta tutti i campi ad un valore nullo
+    /**
+    * @brief Reimposta tutti i campi ad un valore nullo
     */
     private void autorimuoviCampi() {
         campoTitolo.setText("");
@@ -183,8 +187,8 @@ public class ControllerAggiungiLibro implements ControllerService {
         campoCopieDisponibili.setText("1");
     }
     
-    /*
-    * @Brief Mostra popup per informare l'aggiunta di un libro
+    /**
+    * @brief Mostra popup per informare l'aggiunta di un libro
     */
     private void mostraPopup() {
         try {

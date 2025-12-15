@@ -59,8 +59,9 @@ public class ControllerPrestito implements ControllerService {
         campoDurataPrestito.textProperty().addListener((o, vecchioValore, nuovoValore) -> aggiornaDataFinePrestito());
     }
     
-    /*
-    * @Brief Conferma l'aggiunta di un prestito
+    /**
+    * @brief Conferma l'aggiunta di un prestito
+    * @throws IOException
     */
     @FXML
     private void conferma() throws IOException {
@@ -82,16 +83,17 @@ public class ControllerPrestito implements ControllerService {
         }
     }
     
-    /*
-    * @Brief Annulla l'operazione prestito
+    /**
+    * @brief Annulla l'operazione prestito
     */
     @FXML
     private void annulla() throws IOException {
         App.cambiaPaginaPrincipaleConTab(2, service);
     }
     
-    /*
-    * @Brief Carica la pagina di ricerca studente per il prestito
+    /**
+    * @brief Carica la pagina di ricerca studente per il prestito
+    * @throws IOException
     */
     @FXML
     private void avviaRicercaStudente() throws IOException {
@@ -106,8 +108,9 @@ public class ControllerPrestito implements ControllerService {
         App.setRoot(root);
     }
     
-    /*
-    * @Brief Carica la pagina di ricerca libro per il prestito
+    /**
+    * @brief Carica la pagina di ricerca libro per il prestito
+    * @throws IOException
     */
     @FXML
     private void avviaRicercaLibro() throws IOException {
@@ -120,8 +123,8 @@ public class ControllerPrestito implements ControllerService {
         App.setRoot(root);
     }
     
-    /*
-    * @Brief Aggiorna automaticamente il campo fine prestito in base alla durata di giorni inserita
+    /**
+    * @brief Aggiorna automaticamente il campo fine prestito in base alla durata di giorni inserita
     */
     private void aggiornaDataFinePrestito() {
         LocalDate inizio = pickerInizioPrestito.getValue();
@@ -139,8 +142,8 @@ public class ControllerPrestito implements ControllerService {
 
     }
     
-    /*
-    * @Brief Imposta lo studente del prestito
+    /**
+    * @brief Imposta lo studente del prestito
     */
     public void setStudenteSelezionato(Studente studente) {
         this.studenteSelezionato = studente;
@@ -148,23 +151,23 @@ public class ControllerPrestito implements ControllerService {
 
     }
     
-    /*
-    * @Brief Imposta il libro del prestito
+    /**
+    * @brief Imposta il libro del prestito
     */
     public void setLibroSelezionato(Libro libro) {
         this.libroSelezionato = libro;
         labelSelezioneLibro.setText(libroSelezionato.toString());
     }
     
-    /*
-    * @Brief Metodo getter per la root di controller prestito
+    /**
+    * @brief Metodo getter per la root di controller prestito
     */
     public Parent getRoot() {
         return miaRoot;
     }
     
-    /*
-    * @Brief Metodo setter per la root di controller prestito
+    /**
+    * @brief Metodo setter per la root di controller prestito
     */
     public void setRoot(Parent root) {
         this.miaRoot = root;

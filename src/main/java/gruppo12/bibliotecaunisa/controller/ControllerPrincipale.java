@@ -133,16 +133,17 @@ public class ControllerPrincipale implements ControllerService{
         tabellaPrestitiArchiviati.sort();        
     }
     
-    /*
-    * @Brief Seleziona una tab del TabPane principale
-    * @Param i Tab da selezionare
+    /**
+    * @brief Seleziona una tab del TabPane principale
+    * @param i Tab da selezionare
     */
     public void selezionaTab(int i) {
         tabPane.getSelectionModel().select(i);
     }
     
-    /*
-    * @Brief Carica la pagina aggiungi libro
+    /**
+    * @brief Carica la pagina aggiungi libro
+    * @throws IOException
     */
     @FXML
     private void mostraPaginaAggiungiLibro() throws IOException {
@@ -156,8 +157,9 @@ public class ControllerPrincipale implements ControllerService{
         App.setRoot(root);
     }
     
-    /*
-    * @Brief Carica la pagina visualizza libro
+    /**
+    * @brief Carica la pagina visualizza libro
+    * @throws IOException
     */
     @FXML
     private void mostraPaginaVisualizzaLibro() throws IOException {
@@ -174,8 +176,9 @@ public class ControllerPrincipale implements ControllerService{
         App.setRoot(root);
     }
     
-    /*
-    * @Brief Carica la pagina aggiungi studente
+    /**
+    * @brief Carica la pagina aggiungi studente
+    * @throws IOException
     */
     @FXML
     private void mostraPaginaAggiungiStudente() throws IOException {
@@ -189,8 +192,9 @@ public class ControllerPrincipale implements ControllerService{
         App.setRoot(root);
     }
     
-    /*
-    * @Brief Carica la pagina visualizza studente
+    /**
+    * @brief Carica la pagina visualizza studente
+    * @throws IOException
     */
     @FXML
     private void mostraPaginaVisualizzaStudente() throws IOException {
@@ -208,8 +212,9 @@ public class ControllerPrincipale implements ControllerService{
         App.setRoot(root);
     }
     
-    /*
-    * @Brief Carica la pagina di creazione prestito
+    /**
+    * @brief Carica la pagina di creazione prestito
+    * @throws IOException
     */
     @FXML
     private void mostraPaginaPrestito() throws IOException {
@@ -224,8 +229,9 @@ public class ControllerPrincipale implements ControllerService{
         App.setRoot(root);
     }
     
-    /*
-    * @Brief carica la pagina di restituzione del prestito
+    /**
+    * @brief carica la pagina di restituzione del prestito
+    * @throws IOException
     */
     @FXML
     private void mostraPaginaRestituzione() throws IOException {
@@ -241,8 +247,9 @@ public class ControllerPrincipale implements ControllerService{
         App.setRoot(root);
     }
     
-    /*
-    * @Brief Carica la pagina per visualizzare il prestito archiviato
+    /**
+    * @brief Carica la pagina per visualizzare il prestito archiviato
+    * @throws IOException
     */
     @FXML
     private void mostraVisualizzaPrestitoArchiviato() throws IOException {
@@ -257,8 +264,8 @@ public class ControllerPrincipale implements ControllerService{
         App.setRoot(root);
     }
     
-    /*
-    * @Brief Metodo helper per raggruppare l'inizializzazione delle tabelle
+    /**
+    * @brief Metodo helper per raggruppare l'inizializzazione delle tabelle
     */
     @FXML
     private void inizializzaCampiTabelle() {
@@ -313,8 +320,8 @@ public class ControllerPrincipale implements ControllerService{
         });
     }
     
-    /*
-    * @Brief Metodo helper per inizializzare i binding dei bottoni della pagina principale
+    /**
+    * @brief Metodo helper per inizializzare i binding dei bottoni della pagina principale
     */
     @FXML
     private void inizializzaBottoni() {
@@ -326,8 +333,8 @@ public class ControllerPrincipale implements ControllerService{
         bottoneVisualizzaPrestitoArchiviato.disableProperty().bind(tabellaPrestitiArchiviati.getSelectionModel().selectedItemProperty().isNull());
     }
     
-    /*
-    * @Brief Metodo generico per impostare il comportamento di ricerca per ogni tabella
+    /**
+    * @brief Metodo generico per impostare il comportamento di ricerca per ogni tabella
     */
     @FXML
     private <T> void setupFiltroRicerca(ObservableList<T> listaOriginale, TableView<T> tabella, TextField campoRicerca, Function<T, String> filtroRicerca) {
@@ -358,8 +365,8 @@ public class ControllerPrincipale implements ControllerService{
         );
     }
     
-    /*
-    * @Brief Cambia tema chiaro/scuro
+    /**
+    * @brief Cambia tema chiaro/scuro
     */
     @FXML
     private void cambiaTema() {
