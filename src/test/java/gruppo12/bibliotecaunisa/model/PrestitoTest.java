@@ -21,7 +21,7 @@ public class PrestitoTest {
     @BeforeEach
     public void setUp() {
         Prestito.setNum(0);
-        studente = new Studente("0612700000", "Mario", "Rossi", "m.rossi@unisa.it");
+        studente = new Studente("0612700000", "Mario", "Rossi", "mario.rossi@studenti.unisa.it");
         libro = new Libro("1234567890111", "Titolo", Arrays.asList("Autore1", "Autore2"),"Editore", 2, 2020, 5);
         dataInizio = LocalDate.now();
         dataFine = LocalDate.now().plusDays(30);

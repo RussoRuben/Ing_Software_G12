@@ -2,15 +2,10 @@ package gruppo12.bibliotecaunisa.service;
 
 import gruppo12.bibliotecaunisa.data.BibliotecaData;
 import gruppo12.bibliotecaunisa.model.*;
-import gruppo12.bibliotecaunisa.repository.*;
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.List;
 import javafx.collections.ObservableList;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -133,10 +128,19 @@ public class BibliotecaServiceTest {
 
     @Test
     public void testRestituisciPrestito() {
-        // TO DO il metodo restituisciPrestito funziona ma il problema si ha
-        // solo con il test perchè qui creo degli oggetti nuovi in memoria,
-        // mentre nel programma prendo sempre lo stesso oggetto dalla repo
-        // nel programma i riferimenti coincidono, mentre qui no
+        
+        int copiePrima = libro.getCopieDisponibili();
+
+        service.restituisciPrestito(prestito);
+        
+        assertEquals(copiePrima + 1, libro.getCopieDisponibili());
+
+        assertFalse(data.getPrestitoRepo().getAll().contains(prestito));
+        assertTrue(data.getPrestitoRepo().getAllArchiviati().contains(prestito));
+      
+        assertNotNull(prestito.getDataFine());
+        assertEquals(LocalDate.now(), prestito.getDataFine());
+        assertFalse(studente.getListaPrestiti().contains(prestito));
     }
 
     @Test

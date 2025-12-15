@@ -23,7 +23,6 @@ class StudenteRepositoryTest {
         s2 = new Studente("0612700002", "Fabio", "Marracash", "fabio.marracash@studenti.unisa.it");
     }
     
-    
 
     /**
      * @test verifica che lo studente venga aggiunto correttamente
