@@ -26,8 +26,6 @@ public class PrestitoRepository implements Repository<Long, Prestito> {
      */
     @Override
     public void add(Prestito prestito) {
-        // assegno il prestito alla lista prestiti dello studente
-        prestito.getStudente().aggiungiListaPrestiti(prestito);
 
         prestiti.add(prestito);
         prestitiMap.put(prestito.getCodice(), prestito);
