@@ -1,4 +1,4 @@
-package com.mycompany.mavenproject1;
+package gruppo12.bibliotecaunisa.service;
 
 import gruppo12.bibliotecaunisa.data.BibliotecaData;
 import gruppo12.bibliotecaunisa.model.*;
