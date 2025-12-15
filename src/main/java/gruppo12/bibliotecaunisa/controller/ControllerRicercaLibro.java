@@ -17,10 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 
-/**
- * @brief Controller per la schermata di ricerca dei libri
- * @class ControllerRicercaLibro
-*/
 public class ControllerRicercaLibro implements ControllerService {
 
     private BibliotecaService service;

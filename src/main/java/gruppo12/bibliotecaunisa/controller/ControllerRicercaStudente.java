@@ -16,10 +16,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-/**
- * @brief Controller per la schermata di ricerca degli studenti
- * @class ControllerRicercaStudente
- */
 
 public class ControllerRicercaStudente implements ControllerService {
 
