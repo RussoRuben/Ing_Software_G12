@@ -22,7 +22,11 @@ public class LibroTest {
         libro = new Libro("1234567890111", "Titolo", autori,
                 "Editore", 2, 2020, 5);
     }
-     
+    
+    /**
+     * @test Verifica Serializzazione e deserializzazione 
+     * @brief Viene creato un file temporaneo da cui viene letto un oggetto per verificare che sia uguale all'originale dopo la serializzazione
+     */
     @Test
     void testWriteReadObjectWithTempFile() throws Exception {
 
@@ -53,6 +57,9 @@ public class LibroTest {
         assertEquals(libro.getEditore(), libroLetto.getEditore());                
     }
     
+    /**
+     * @test verifica funzionamento costruttore
+     */
     @Test
     public void testCostruttore() {
         assertEquals("1234567890111", libro.getCodice());
@@ -64,66 +71,102 @@ public class LibroTest {
         assertIterableEquals(autori, libro.getAutori());
     }
 
+    /**
+     * @test verifica metodo GetAutoriString
+     */
     @Test
     public void testGetAutoriString() {
         assertEquals("Autore1, Autore2", libro.getAutoriString());
     }
     
+    /**
+     * @test verifica metodo GetCodice
+     */
     @Test
     public void testGetCodice() {
         assertEquals("1234567890111", libro.getCodice());
     }
     
+    /**
+     * @test verifica metodo GetTitolo
+     */
     @Test
     public void testGetTitolo() {
         assertEquals("Titolo", libro.getTitolo());
     }
     
+    /**
+     * @test verifica metodo GetEditore
+     */
     @Test
     public void testGetEditore() {
         assertEquals("Editore", libro.getEditore());
     }
-     
+    
+    /**
+     * @test verifica metodo GetAnno
+     */
     @Test
     public void testGetAnno() {
         assertEquals(2020, libro.getAnno());
     }
 
+    /**
+     * @test verifica metodo GetNumeroEdizione
+     */
     @Test
     public void testGetNumeroEdizione() {
         assertEquals(2, libro.getNumeroEdizione());
     }
     
+    /**
+     * @test verifica metodo GetCopieDisponibili
+     */
     @Test
     public void testGetCopieDisponibili() {
         assertEquals(5, libro.getCopieDisponibili());
     }
 
-
+    /**
+     * @test verifica metodo SetCodice
+     */
     @Test
     public void testSetCodice() {
         libro.setCodice("XYZ");
         assertEquals("XYZ", libro.getCodice());
     }
 
+    /**
+     * @test verifica metodo SetTitolo
+     */
     @Test
     public void testSetTitolo() {
         libro.setTitolo("NuovoTitolo");
         assertEquals("NuovoTitolo", libro.getTitolo());
     }
 
+    
+    /**
+     * @test verifica metodo SetEditore
+     */
     @Test
     public void testSetEditore() {
         libro.setEditore("NuovoEditore");
         assertEquals("NuovoEditore", libro.getEditore());
     }
 
+    /**
+     * @test verifica metodo SetNumeroEdizione
+     */
     @Test
     public void testSetNumeroEdizione() {
         libro.setNumeroEdizione(10);
         assertEquals(10, libro.getNumeroEdizione());
     }
-
+    
+    /**
+     * @test verifica metodo SetAutori
+     */
     @Test
     public void testSetAutori() {
         List<String> nuoviAutori = Arrays.asList("A", "B");
@@ -131,18 +174,27 @@ public class LibroTest {
         assertIterableEquals(nuoviAutori, libro.getAutori());
     }
 
+    /**
+     * @test verifica metodo SetAnno
+     */
     @Test
     public void testSetAnno() {
         libro.setAnno(1999);
         assertEquals(1999, libro.getAnno());
     }
-
+    
+    /**
+     * @test verifica metodo SetCopieDisponibili
+     */
     @Test
     public void testSetCopieDisponibili() {
         libro.setCopieDisponibili(99);
         assertEquals(99, libro.getCopieDisponibili());
     }
 
+    /**
+     * @test verifica metodo ToString
+     */
     @Test
     public void testToString() {
         assertEquals("1234567890111: Titolo", libro.toString());

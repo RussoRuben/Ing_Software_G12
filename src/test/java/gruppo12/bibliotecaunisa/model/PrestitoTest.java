@@ -21,13 +21,17 @@ public class PrestitoTest {
     @BeforeEach
     public void setUp() {
         Prestito.setNum(0);
-        studente = new Studente("0612700000", "Mario", "Rossi", "mario.rossi@studenti.unisa.it");
+        studente = new Studente("0612700000", "Mario", "Rossi", "m.rossi@unisa.it");
         libro = new Libro("1234567890111", "Titolo", Arrays.asList("Autore1", "Autore2"),"Editore", 2, 2020, 5);
         dataInizio = LocalDate.now();
         dataFine = LocalDate.now().plusDays(30);
         prestito = new Prestito(studente, libro, dataInizio, dataFine);
     }
-     
+    
+    /**
+     * @test Verifica Serializzazione e deserializzazione 
+     * @brief Viene creato un file temporaneo da cui viene letto un oggetto per verificare che sia uguale all'originale dopo la serializzazione
+     */
     @Test
     void testWriteReadObjectWithTempFile() throws Exception {
       
@@ -55,6 +59,9 @@ public class PrestitoTest {
         assertEquals(prestito.getDataFine(), prestitoLetto.getDataFine());            
     }
     
+    /**
+     * @test verifica funzionamento costruttore
+     */
     @Test
     public void testCostruttore() {
         assertEquals(studente, prestito.getStudente());
@@ -64,11 +71,17 @@ public class PrestitoTest {
         assertEquals(1, prestito.getCodice());
     }
 
+    /**
+     * @test verifica metodo GetStudente
+     */
     @Test
     public void testGetStudente() {
         assertEquals(studente, prestito.getStudente());
     }
 
+    /**
+     * @test verifica metodo SetDataFine
+     */
     @Test
     public void testSetDataFine() {
         LocalDate testData = LocalDate.now().plusDays(60);
@@ -76,16 +89,25 @@ public class PrestitoTest {
         assertEquals(testData, prestito.getDataFine());
     }
     
+    /**
+     * @test verifica metodo GetStudenteString
+     */
     @Test
     public void testGetStudenteString() {
         assertEquals(studente.toString(), prestito.getStudenteString());
     }
     
+    /**
+     * @test verifica metodo GetLibroString
+     */
     @Test
     public void testGetLibroString() {
         assertEquals(libro.toString(), prestito.getLibroString());
     }
     
+    /**
+     * @test verifica metodo GetSetNum
+     */
     @Test
     public void testGetSetNum() {
         Prestito.setNum(100);

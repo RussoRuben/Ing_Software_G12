@@ -53,7 +53,11 @@ public class StudenteTest {
         prestito4 = new Prestito(studente, libro4, dataInizio,dataFine);
         
     }
-     
+    
+    /**
+     * @test Verifica Serializzazione e deserializzazione 
+     * @brief Viene creato un file temporaneo da cui viene letto un oggetto per verificare che sia uguale all'originale dopo la serializzazione
+     */
     @Test
     void testWriteReadObjectFile() throws Exception {
         
@@ -86,6 +90,9 @@ public class StudenteTest {
              
     }
     
+    /**
+     * @test verifica funzionamento costruttore
+     */
     @Test
     public void testCostruttore() {
         assertEquals("0612677146", studente.getMatricola());
@@ -96,42 +103,66 @@ public class StudenteTest {
         assertTrue(studente.getListaPrestiti().isEmpty());
     }
 
+    /**
+     * @test verifica metodo GetMatricola
+     */
     @Test
     public void testGetMatricola() {
         assertEquals("0612677146", studente.getMatricola());
     }
     
+    /**
+     * @test verifica metodo GetNome
+     */
     @Test
     public void testGetNome() {
         assertEquals("Claudia", studente.getNome());
     }
     
+    /**
+     * @test verifica metodo GetCognome
+     */
     @Test
     public void testGetCognome() {
         assertEquals("Barbato", studente.getCognome());
     }
     
+    /**
+     * @test verifica metodo GetEmail
+     */
     @Test
     public void testGetEmail() {
         assertEquals("c.barbato@studenti.unisa.it", studente.getEmail());
     }
-     
+    
+    /**
+     * @test verifica metodo ListaPrestiti_Empty
+     */
     @Test
     public void testListaPrestiti_Empty(){
         assertTrue(studente.getListaPrestiti().isEmpty());
     }
 
+    /**
+     * @test verifica metodo GetListaPrestitiString_Empty
+     */
     @Test
     public void testGetListaPrestitiString_Empty() {
         assertEquals("Nessun Libro",studente.getListaPrestitiString());
     }
     
+    /**
+     * @test verifica metodo GetListaPrestitiString_SingleItem
+     */
     @Test
     public void testGetListaPrestitiString_SingleItem() {
         studente.aggiungiListaPrestiti(prestito1);
         assertEquals("Moby Dick",studente.getListaPrestitiString());
     }
     
+    /**
+     * @test verifica metodo GetListaPrestitiString_MoreItems
+     */
     @Test
     public void testGetListaPrestitiString_MoreItems() {
         studente.aggiungiListaPrestiti(prestito1);
@@ -139,30 +170,45 @@ public class StudenteTest {
         assertEquals("Moby Dick, Odissea",studente.getListaPrestitiString());
     }
 
+    /**
+     * @test verifica metodo SetMatricola
+     */
     @Test
     public void testSetMatricola() {
         studente.setMatricola("");
         assertEquals("", studente.getMatricola());
     }
 
+    /**
+     * @test verifica metodo SetNome
+     */
     @Test
     public void testSetNome() {
         studente.setNome("Alessio");
         assertEquals("Alessio", studente.getNome());
     }
 
+    /**
+     * @test verifica metodo SetCognome
+     */
     @Test
     public void testSetCognome() {
         studente.setCognome("Maccaro");
         assertEquals("Maccaro", studente.getCognome());
     }
 
+    /**
+     * @test verifica metodo SetEmail
+     */
     @Test
     public void testSetEmail() {
         studente.setEmail("a.maccaro@studenti.unisa.it");
         assertEquals("a.maccaro@studenti.unisa.it", studente.getEmail());
     }
 
+    /**
+     * @test verifica metodo setListaPrestiti
+     */
     @Test
     public void testSetListaPrestiti() {
         ObservableList<Prestito> nuovaLista = FXCollections.observableArrayList(prestito1);
@@ -170,6 +216,9 @@ public class StudenteTest {
         assertIterableEquals(nuovaLista, studente.getListaPrestiti());
     }
 
+    /**
+     * @test verifica metodo AggiungiListaPrestiti_Success
+     */
     @Test
     public void testAggiungiListaPrestiti_Success() {
         assertTrue(studente.aggiungiListaPrestiti(prestito1));
@@ -180,6 +229,9 @@ public class StudenteTest {
         assertEquals(3,studente.getListaPrestiti().size());
     }
 
+    /**
+     * @test verifica metodo AggiungiListaPrestiti_Failure
+     */
     @Test
     public void testAggiungiListaPrestiti_Failure(){
         studente.aggiungiListaPrestiti(prestito1);
@@ -189,6 +241,9 @@ public class StudenteTest {
         assertEquals(3,studente.getListaPrestiti().size());
     }
     
+    /**
+     * @test verifica metodo RimuoviListaPrestiti_Success
+     */
     @Test
     public void testRimuoviListaPrestiti_Success(){
         studente.aggiungiListaPrestiti(prestito1);
@@ -200,9 +255,11 @@ public class StudenteTest {
         
     }
 
+    /**
+     * @test verifica metodo ToString
+     */
     @Test
     public void testToString() {
         assertEquals("0612677146: Claudia Barbato", studente.toString());
     }
 }
-
