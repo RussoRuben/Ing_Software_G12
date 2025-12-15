@@ -38,7 +38,7 @@
                     <children>
                   <HBox alignment="CENTER_LEFT" spacing="20.0">
                      <children>
-                            <TextField fx:id="campoMatricola" />
+                            <TextField fx:id="campoMatricola" promptText="Matricola" />
                         <Label fx:id="labelAvvisoMatricola" textFill="RED">
                            <font>
                               <Font name="System Italic" size="13.0" />
@@ -46,9 +46,9 @@
                         </Label>
                      </children>
                   </HBox>
-                        <TextField fx:id="campoNome" alignment="TOP_LEFT" />
-                        <TextField fx:id="campoCognome" />
-                        <TextField fx:id="campoEmail" />
+                        <TextField fx:id="campoNome" alignment="TOP_LEFT" promptText="Nome" />
+                        <TextField fx:id="campoCognome" promptText="Cognome" />
+                        <TextField fx:id="campoEmail" promptText="Email" />
                     </children>
                 </VBox>
             </children>

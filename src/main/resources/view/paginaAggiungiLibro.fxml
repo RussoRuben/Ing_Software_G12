@@ -44,7 +44,7 @@
                     <children>
                   <HBox alignment="CENTER_LEFT" spacing="20.0">
                      <children>
-                            <TextField fx:id="campoCodice" />
+                            <TextField fx:id="campoCodice" promptText="ISBN" />
                         <Label fx:id="labelAvvisoCodice" textFill="RED">
                            <font>
                               <Font name="System Italic" size="13.0" />
@@ -52,11 +52,11 @@
                         </Label>
                      </children>
                   </HBox>
-                        <TextField fx:id="campoTitolo" alignment="TOP_LEFT" />
-                        <TextField fx:id="campoAutori" />
-                        <TextField fx:id="campoEditore" />
-                  <TextField fx:id="campoNumeroEdizione" />
-                  <TextField fx:id="campoAnno" />
+                        <TextField fx:id="campoTitolo" alignment="TOP_LEFT" promptText="Titolo" />
+                        <TextField fx:id="campoAutori" promptText="Autore 1, Autore 2" />
+                        <TextField fx:id="campoEditore" promptText="Editore" />
+                  <TextField fx:id="campoNumeroEdizione" promptText="Edizione" />
+                  <TextField fx:id="campoAnno" promptText="Anno" />
                   <HBox spacing="20.0">
                      <children>
                               <TextField fx:id="campoCopieDisponibili" alignment="CENTER" maxWidth="60.0" text="1" />
