@@ -82,7 +82,7 @@ public class BibliotecaData {
             out.writeObject(prestitiSerializzabili);
             out.writeObject(prestitiArchiviatiSerializzabili);
 
-            System.out.println("Stato salvato su: " + filePath);
+            //System.out.println("Stato salvato su: " + filePath);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -126,7 +126,7 @@ public class BibliotecaData {
             else
                 Prestito.setNum(maxArchiviati);
             
-            System.out.println("Stato caricato.");
+            //System.out.println("Stato caricato.");
             
 
         } catch (IOException | ClassNotFoundException e) {

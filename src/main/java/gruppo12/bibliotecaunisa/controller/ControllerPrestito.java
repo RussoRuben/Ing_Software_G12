@@ -7,12 +7,21 @@ import gruppo12.bibliotecaunisa.model.Studente;
 import gruppo12.bibliotecaunisa.service.BibliotecaService;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 public class ControllerPrestito implements ControllerService {
 
@@ -65,7 +74,8 @@ public class ControllerPrestito implements ControllerService {
             }
 
             service.aggiungiPrestito(new Prestito(studenteSelezionato, libroSelezionato, inizioPrestito, finePrestito));
-
+            
+            mostraPopup();
             App.cambiaPaginaPrincipaleConTab(2, service);
         } catch ( NumberFormatException e) {
             labelAvvisoInput.setText("Durata giorni non valida.");
@@ -158,5 +168,49 @@ public class ControllerPrestito implements ControllerService {
     */
     public void setRoot(Parent root) {
         this.miaRoot = root;
+    }
+    
+    private void mostraPopup() {
+        try {
+            // prendo gli stili correnti (per caricare un popup con stile coerente)
+            List<String> stiliCorrenti = new ArrayList<>();
+            if (campoDurataPrestito.getScene() != null) {
+                stiliCorrenti.addAll(campoDurataPrestito.getScene().getStylesheets());
+            }
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/popupPrestito.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.initStyle(StageStyle.TRANSPARENT);
+            popupStage.setAlwaysOnTop(true);
+
+            Scene scene = new Scene(root);
+            scene.setFill(Color.TRANSPARENT);
+
+            // applico gli stili al popup
+            scene.getStylesheets().addAll(stiliCorrenti);
+
+            popupStage.setScene(scene);
+            popupStage.show();
+            popupStage.centerOnScreen();
+            
+            // creo la transizione per far sparire il popup
+            PauseTransition wait = new PauseTransition(Duration.seconds(1));
+            wait.setOnFinished((e) -> {
+            // fade out del popup
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), root);
+            fadeOut.setFromValue(1.0);
+            fadeOut.setToValue(0.0);
+            fadeOut.setOnFinished(event -> popupStage.close());
+            fadeOut.play();
+            });
+            
+            wait.play();
+            
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
