@@ -113,7 +113,6 @@ public class ControllerPrincipale implements ControllerService{
         setupFiltroRicerca(service.getStudenti(), tabellaStudenti, cercaStudente, studente -> studente.getCognome() + " " + studente.getMatricola());
         setupFiltroRicerca(service.getPrestiti(), tabellaPrestiti, cercaPrestito, prestito -> prestito.getCodice() + " " + prestito.getStudente().getMatricola());
         setupFiltroRicerca(service.getPrestitiArchiviati(), tabellaPrestitiArchiviati, cercaPrestitoArchiviato, prestito -> prestito.getCodice() + " " + prestito.getStudente().getMatricola());
-
     }
 
     @FXML
@@ -139,37 +138,97 @@ public class ControllerPrincipale implements ControllerService{
 
     @FXML
     private void mostraPaginaAggiungiLibro() throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaAggiungiLibro.fxml"));
+        Parent root = loader.load();
 
+        // prendo il controller di visualizza libro
+        ControllerAggiungiLibro controller = loader.getController();
+        controller.initService(service);
+
+        App.setRoot(root);
     }
 
     @FXML
     private void mostraPaginaVisualizzaLibro() throws IOException {
+        Libro libroSelezionato = tabellaLibri.getSelectionModel().getSelectedItem();
 
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaVisualizzaLibro.fxml"));
+        Parent root = loader.load();
+
+        // prendo il controller di visualizza libro
+        ControllerVisualizzaLibro controller = loader.getController();
+        controller.setLibro(libroSelezionato);
+        controller.initService(service);
+
+        App.setRoot(root);
     }
 
     @FXML
     private void mostraPaginaAggiungiStudente() throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaAggiungiStudente.fxml"));
+        Parent root = loader.load();
 
+        // prendo il controller di visualizza libro
+        ControllerAggiungiStudente controller = loader.getController();
+        controller.initService(service);
+
+        App.setRoot(root);
     }
 
     @FXML
     private void mostraPaginaVisualizzaStudente() throws IOException {
+        Studente studenteSelezionato = tabellaStudenti.getSelectionModel().getSelectedItem();
 
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaVisualizzaStudente.fxml"));
+        Parent root = loader.load();
+
+        // prendo il controller di visualizza libro
+        ControllerVisualizzaStudente controller = loader.getController();
+        
+        controller.setStudente(studenteSelezionato);
+        controller.initService(service);
+
+        App.setRoot(root);
     }
 
     @FXML
     private void mostraPaginaPrestito() throws IOException {
 
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaPrestito.fxml"));
+        Parent root = loader.load();
+
+        ControllerPrestito controller = loader.getController();
+        controller.setRoot(root);
+        controller.initService(service);
+
+        App.setRoot(root);
     }
 
     @FXML
     private void mostraPaginaRestituzione() throws IOException {
 
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaRestituzione.fxml"));
+        Parent root = loader.load();
+
+        ControllerRestituzione controller = loader.getController();
+        Prestito prestitoSelezionato = tabellaPrestiti.getSelectionModel().getSelectedItem();
+        controller.setCampiPrestito(prestitoSelezionato);
+        controller.initService(service);
+
+        App.setRoot(root);
     }
 
     @FXML
     private void mostraVisualizzaPrestitoArchiviato() throws IOException {
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("/view/paginaVisualizzaPrestitoArchiviato.fxml"));
+        Parent root = loader.load();
 
+        ControllerVisualizzaPrestitoArchiviato controller = loader.getController();
+        Prestito prestitoSelezionato = tabellaPrestitiArchiviati.getSelectionModel().getSelectedItem();
+        controller.setCampiPrestito(prestitoSelezionato);
+        controller.initService(service);
+        
+        App.setRoot(root);
     }
 
     @FXML
