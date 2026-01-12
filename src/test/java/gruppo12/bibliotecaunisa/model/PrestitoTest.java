@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class PrestitoTest {
+    
     private Prestito prestito;
     private Studente studente;
     private Libro libro;
@@ -38,7 +39,7 @@ public class PrestitoTest {
         //File temporaneo per test
         File temp = File.createTempFile("test-prestito", ".ser");
         temp.deleteOnExit();
-
+        
         //Serializzazione
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(temp))) {
             oos.writeObject(prestito);
